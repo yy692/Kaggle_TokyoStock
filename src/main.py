@@ -21,7 +21,7 @@ def run_MLP(xfile, yfile, sec_code_file, sector, window=5):
     '''
     offset = window-1
     xTr, yTr, sec_code_list = jpx_utils.dataloader(xfile, yfile, sec_code_file)
-    num_stock = len(sec_code_list[0])
+    num_stock = len(sec_code_list)
     ema5Tr, ema10Tr, ema20Tr = jpx_utils.MovingAverage(xTr)
     xTr, yTr = jpx_utils.FormTimeWindow(xTr, yTr, window)
     xTr = np.concatenate((xTr, ema5Tr[offset:], ema10Tr[offset:], ema20Tr[offset:]), axis=1)
